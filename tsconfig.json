@@ -71,14 +71,6 @@
                 "node_modules/*"
             ]
         },
-        "plugins": [
-            {
-                "transform": "@zerollup/ts-transform-paths",
-                "exclude": [
-                    "*"
-                ]
-            }
-        ],
         "jsx": "react",
         "esModuleInterop": true
     }

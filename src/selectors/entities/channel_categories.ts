@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {createSelector} from 'reselect';
-import shallowEquals from 'shallow-equals';
+import shallowequal from 'shallowequal';
 
 import {General, Preferences} from '../../constants';
 import {CategoryTypes} from '../../constants/channel_categories';
@@ -445,7 +445,7 @@ export function makeGetChannelsByCategory() {
         }
 
         // Do a shallow equality check of channelsByCategory to avoid returning a new object containing the same data
-        if (shallowEquals(channelsByCategory, lastChannelsByCategory)) {
+        if (shallowequal(channelsByCategory, lastChannelsByCategory)) {
             return lastChannelsByCategory;
         }
 

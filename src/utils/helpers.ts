@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 import * as reselect from 'reselect';
-import shallowEqual from 'shallow-equals';
+import shallowequal from 'shallowequal';
 import {Dictionary} from 'types/utilities';
 export function memoizeResult<F extends Function>(func: F): any {
     let lastArgs: IArguments|null = null;
@@ -9,11 +9,11 @@ export function memoizeResult<F extends Function>(func: F): any {
 
     // we reference arguments instead of spreading them for performance reasons
     return function shallowCompare() {
-        if (!shallowEqual(lastArgs, arguments)) { //eslint-disable-line prefer-rest-params
+        if (!shallowequal(lastArgs, arguments)) { //eslint-disable-line prefer-rest-params
             //eslint-disable-line prefer-rest-params
             // apply arguments instead of spreading for performance.
             const result = Reflect.apply(func, null, arguments); //eslint-disable-line prefer-rest-params
-            if (!shallowEqual(lastResult, result)) {
+            if (!shallowequal(lastResult, result)) {
                 lastResult = result;
             }
         }
@@ -28,7 +28,7 @@ export function memoizeResult<F extends Function>(func: F): any {
 export const createIdsSelector = reselect.createSelectorCreator(memoizeResult);
 
 // Use this selector when you want a shallow comparison of the arguments and you don't need to memoize the result
-export const createShallowSelector = reselect.createSelectorCreator(reselect.defaultMemoize, shallowEqual as any);
+export const createShallowSelector = reselect.createSelectorCreator(reselect.defaultMemoize, shallowequal as any);
 
 // isMinimumServerVersion will return true if currentVersion is equal to higher or than the
 // the provided minimum version. A non-equal major version will ignore minor and dot

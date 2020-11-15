@@ -8,6 +8,7 @@
   "bugs": {
     "url": "https://github.com/mattermost/mattermost-redux/issues"
   },
+  "main": "./dist/index.js",
   "exports": {
     "./": "./dist/"
   },
@@ -42,7 +43,7 @@
     "reselect": "4.0.0",
     "rudder-sdk-js": "1.0.6",
     "serialize-error": "6.0.0",
-    "shallow-equals": "1.0.0"
+    "shallowequal": "^1.1.0"
   },
   "husky": {
     "hooks": {

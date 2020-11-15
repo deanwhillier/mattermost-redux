@@ -21,7 +21,6 @@
     "test": "jest --forceExit --detectOpenHandles --maxWorkers=2",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prepare": "npm run build",
     "dev": "tsc --outDir ${WEBAPP_DIR:-../mattermost-webapp}/node_modules/mattermost-redux",
     "dev-mobile": "tsc --outDir ${MOBILE_DIR:-../mattermost-mobile}/node_modules/mattermost-redux",
     "dev:watch": "tsc --watch --outDir ${WEBAPP_DIR:-../mattermost-webapp}/node_modules/mattermost-redux",
